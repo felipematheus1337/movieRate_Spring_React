@@ -1,0 +1,19 @@
+header {
+    background-color: #c79332;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+
+
+.movierate-nav-content  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.movierate-contact-container {
+    display: flex;
+    
+}
