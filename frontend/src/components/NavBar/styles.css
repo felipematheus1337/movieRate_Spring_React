@@ -1,19 +1,19 @@
 header {
-    background-color: #c79332;
+    background-color: var(--color-primary);
     height: 60px;
     display: flex;
     align-items: center;
 }
 
 
-.movierate-nav-content  {
+.dsmovie-nav-content  {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 
-.movierate-contact-container {
+.dsmovie-contact-container {
     display: flex;
     
 }
