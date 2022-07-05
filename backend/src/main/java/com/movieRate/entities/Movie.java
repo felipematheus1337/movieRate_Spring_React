@@ -2,6 +2,8 @@ package com.movieRate.entities;
 
 import javax.annotation.processing.Generated;
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name ="tb_movie")
@@ -19,6 +21,9 @@ public class Movie {
 
     private String image;
 
+
+    @OneToMany(mappedBy = "id.movie")
+    private Set<Score> scores = new HashSet<>();
     public Movie(){}
 
     public Movie(Long id, String title, Double score, Integer count, String image) {
@@ -68,4 +73,10 @@ public class Movie {
     public void setImage(String image) {
         this.image = image;
     }
+
+    public Set<Score> getScores() {
+        return scores;
+    }
+
+
 }
