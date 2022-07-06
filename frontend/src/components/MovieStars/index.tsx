@@ -30,20 +30,19 @@ function getFills(score: number) {
   }
   
   function Star({fill} : StarProps) {
-   switch (fill) {
-    case (0): {
-        return <StarEmpty/>
-       
+    if(fill === 0) {
+      return <StarEmpty/>
     }
-    case (1): {
-        return <StarFull/>
-      
+    else if (fill === 1) {
+      return <StarFull/>
     }
-    default: {
+    else {
       return <StarHalf/>
     }
+      
+    
 
-   }
+   
   }
 
 function MovieStars({score} : Props) {
