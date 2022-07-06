@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class ScorePK implements Serializable {
 
 
-    @Serial
+
     private static final long serialVersionUID = 1L;
 
     @ManyToOne

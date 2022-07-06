@@ -19,9 +19,9 @@ public class ScoreController {
 
 
     @PutMapping
-    public MovieDTO saveScore(@RequestBody ScoreDTO scoreDTO) {
-        MovieDTO dto = service.saveScore(scoreDTO);
-        return dto;
+    public MovieDTO saveScore(@RequestBody ScoreDTO dto) {
+        MovieDTO movieDTO = service.saveScore(dto);
+        return movieDTO;
     }
 
 

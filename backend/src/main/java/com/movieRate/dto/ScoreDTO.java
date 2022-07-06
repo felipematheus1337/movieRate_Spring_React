@@ -3,12 +3,12 @@ package com.movieRate.dto;
 public class ScoreDTO {
 
     private Long movieId;
-
     private String email;
-
     private Double score;
 
-    public ScoreDTO(){}
+    public ScoreDTO() {
+
+    }
 
     public Long getMovieId() {
         return movieId;
@@ -33,4 +33,5 @@ public class ScoreDTO {
     public void setScore(Double score) {
         this.score = score;
     }
+
 }

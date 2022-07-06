@@ -33,11 +33,11 @@ function getFills(score: number) {
    switch (fill) {
     case (0): {
         return <StarEmpty/>
-        break;
+       
     }
     case (1): {
         return <StarFull/>
-        break;
+      
     }
     default: {
       return <StarHalf/>

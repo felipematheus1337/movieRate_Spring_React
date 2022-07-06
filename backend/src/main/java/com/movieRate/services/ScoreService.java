@@ -14,6 +14,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.NoSuchElementException;
+
 @Service
 public class ScoreService {
 
@@ -29,10 +31,10 @@ public class ScoreService {
 
 
     @Transactional
-    public MovieDTO saveScore(ScoreDTO dto) {
+    public MovieDTO saveScore(ScoreDTO dto) throws NoSuchElementException {
 
         User user = userRepository.findByEmail(dto.getEmail());
-        if(user == null) {
+        if (user == null) {
             user = new User();
             user.setEmail(dto.getEmail());
             user = userRepository.saveAndFlush(user);
@@ -41,23 +43,18 @@ public class ScoreService {
         Movie movie = movieRepository.findById(dto.getMovieId()).get();
 
         Score score = new Score();
-
         score.setMovie(movie);
         score.setUser(user);
         score.setValue(dto.getScore());
 
-        scoreRepository.saveAndFlush(score);
-
+        score = scoreRepository.saveAndFlush(score);
 
         double sum = 0.0;
-
-        for (Score s: movie.getScores()) {
-          sum = sum + s.getValue();
+        for (Score s : movie.getScores()) {
+            sum = sum + s.getValue();
         }
 
         double avg = sum / movie.getScores().size();
-
-
 
         movie.setScore(avg);
         movie.setCount(movie.getScores().size());
@@ -65,9 +62,7 @@ public class ScoreService {
         movie = movieRepository.save(movie);
 
         return new MovieDTO(movie);
-
     }
-
 
 
 
